@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: bbs
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `bbs4` (
 
 LOCK TABLES `bbs4` WRITE;
 /*!40000 ALTER TABLE `bbs4` DISABLE KEYS */;
-INSERT INTO `bbs4` VALUES (1,'ㅁㄴㅇㄹㄴㅇㄹㄴㅇ','moonki','2019-05-30 15:42:31','ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ',0,1),(2,'ㄴㅇㅁㄹㄴㄹ','moonki','2019-05-30 16:42:47','ㅈㄷㄱㅂㅈㄷㄱㅂㅈㄷㄱ',0,1);
+INSERT INTO `bbs4` VALUES (1,'ㅁㄴㅇㄹㄴㅇㄹㄴㅇ','moonki','2019-05-30 15:42:31','ㅁㄴㅇㄻㄴㅇㄻㄴㅇㄹ',0,1),(2,'ㄴㅇㅁㄹㄴㄹ','moonki','2019-05-30 16:42:47','ㅈㄷㄱㅂㅈㄷㄱㅂㅈㄷㄱ',3,1),(3,'물건 팔아용!','111','2019-06-15 03:33:05','싸다싸!!!!',9,0);
 /*!40000 ALTER TABLE `bbs4` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-14 17:55:01
+-- Dump completed on 2019-06-15  5:06:27

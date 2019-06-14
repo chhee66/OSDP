@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: bbs
 -- ------------------------------------------------------
--- Server version	8.0.16
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('1111','1234','moonki','남자','11@11','0'),('gildong','123456','홍길동','남자','mkjang0905@naver.com','0'),('mkjang0905','ansrl123','장문기','남자','mkjang0905@naver.com','0'),('moongi','1234','좡문귀','여자','asd@naver.com','0,36'),('moonki','1234','장문키','남자','mkjang0905@naver.com','0');
+INSERT INTO `user` VALUES ('111','111','111','여자','111@naver.com','0,40,38,37,35'),('1111','1234','moonki','남자','11@11','0,38'),('gildong','123456','홍길동','남자','mkjang0905@naver.com','0'),('mkjang0905','ansrl123','장문기','남자','mkjang0905@naver.com','0'),('moongi','1234','좡문귀','여자','asd@naver.com','0,36'),('moonki','1234','장문키','남자','mkjang0905@naver.com','0,43');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-14 17:55:03
+-- Dump completed on 2019-06-15  5:06:28
