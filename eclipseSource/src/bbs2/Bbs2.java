@@ -8,6 +8,7 @@ public class Bbs2 {
 	private String bbsContent;
 	private int bbsAvailable;
 	private int bbsView;
+	
 	public int getBbsView() {
 		return bbsView;
 	}

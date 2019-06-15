@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import bbs.Bbs;
 
 public class Bbs2DAO {
-
 	private Connection conn;
 	private ResultSet rs;
 
@@ -17,7 +16,7 @@ public class Bbs2DAO {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/BBS?serverTimezone=UTC";
 			String dbID = "root";
-			String dbPassword = "1234";
+			String dbPassword = "9866";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -185,9 +184,9 @@ public class Bbs2DAO {
 		}
 		return -1; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
 	}
-	// 2019-05-30 議고쉶�닔 �깮�꽦_BEGIN_諛뺤큹�씗
+	// 2019-05-30 조회수 생성_BEGIN_박초희
 	   public int view(int bbsView, int bbsID) { //湲� �닔�젙
-	      String SQL = "UPDATE BBS SET bbsView = ? WHERE bbsID = ?";
+	      String SQL = "UPDATE BBS2 SET bbsView = ? WHERE bbsID = ?";
 	      try {
 	         PreparedStatement pstmt = conn.prepareStatement(SQL);
 	         pstmt.setInt(1, bbsView);
@@ -196,13 +195,13 @@ public class Bbs2DAO {
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
-	      return -1; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
+	      return -1;
 	   }
 	// 2019-05-30 議고쉶�닔 �깮�꽦_END_諛뺤큹�씗 
 	   
 	// 2019-06-08 [BEST] �씤湲곌�_BEGIN_諛뺤큹�씗
 	      public int best(int bbsID, String bbsTitle) { //bbsTitle�뿉 [BEST] 異붽�
-	         String SQL = "UPDATE BBS SET bbsTitle = ? WHERE bbsID = ?";
+	         String SQL = "UPDATE BBS2 SET bbsTitle = ? WHERE bbsID = ?";
 	         try {
 	            PreparedStatement pstmt = conn.prepareStatement(SQL);
 	            pstmt.setString(1, bbsTitle);

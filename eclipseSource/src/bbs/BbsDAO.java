@@ -8,14 +8,13 @@ import java.util.ArrayList;
 
 public class BbsDAO {
 	private Connection conn;
-
 	private ResultSet rs;
 	
 	public BbsDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/BBS?useUnicode=true&characterEncoding=UTF-8";
 			String dbID = "root";
-			String dbPassword = "1234";
+			String dbPassword = "9866";
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL,dbID,dbPassword);
 		}catch(Exception e) {
@@ -54,7 +53,12 @@ public class BbsDAO {
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setInt(1, getNext());
-			pstmt.setString(2, bbsTitle);
+			if(bbsVOTE==0) {
+				pstmt.setString(2, bbsTitle);
+			}
+			else {
+				pstmt.setString(2, "[투표] "+bbsTitle);
+			}
 			pstmt.setString(3, userID);
 			pstmt.setString(4, getDate());
 			pstmt.setString(5, bbsContent);
@@ -65,8 +69,6 @@ public class BbsDAO {
 			pstmt.setInt(9, 1);
 			pstmt.setInt(10, bbsVOTE);
 			pstmt.setInt(11, 0);
-
-			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -178,20 +180,18 @@ public class BbsDAO {
 		return null; 
 	}
 	
-	public int update(int bbsID, String bbsTitle, String bbsContent, String bbsDeadline, int bbsVOTE) {
-		String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ?, bbsDeadline = ? , bbsVOTE = ? ,WHERE bbsID = ?";
+	public int update(int bbsID, String bbsTitle, String bbsContent) {
+		String SQL = "UPDATE BBS SET bbsTitle = ?, bbsContent = ? WHERE bbsID = ?"; //20190615 일반 글 update함수 수정
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, bbsTitle);
 			pstmt.setString(2, bbsContent);
-			pstmt.setString(3, bbsDeadline);
-			pstmt.setInt(4, bbsVOTE);
-			pstmt.setInt(5, bbsID);
+			pstmt.setInt(3, bbsID);
 			return pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //�뜲�씠�꽣踰좎씠�뒪 �삤瑜�
+		return -1; //데이터베이스 오류
 	}
 	
 	public int delete(int bbsID) {
@@ -203,10 +203,11 @@ public class BbsDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return -1; //�뜲�씠�꽣踰좎씠�뒪 �삤瑜�
+		return -1; //데이터베이스 오류
 	}
-	// 2019-05-30 議고쉶�닔 �깮�꽦_BEGIN_諛뺤큹�씗
-	   public int view(int bbsView, int bbsID) { //湲� �닔�젙
+	
+	// 2019-05-30 조회수 생성_BEGIN_박초희
+	   public int view(int bbsView, int bbsID) { //글 수정
 	      String SQL = "UPDATE BBS SET bbsView = ? WHERE bbsID = ?";
 	      try {
 	         PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -216,12 +217,12 @@ public class BbsDAO {
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
-	      return -1; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
+	      return -1; // 데이터베이스 오류
 	   }
-	// 2019-05-30 議고쉶�닔 �깮�꽦_END_諛뺤큹�씗 
-	   
-	// 2019-06-08 [BEST] �씤湲곌�_BEGIN_諛뺤큹�씗
-	      public int best(int bbsID, String bbsTitle) { //bbsTitle�뿉 [BEST] 異붽�
+	// 2019-05-30 조회수 생성_END_박초희 
+		
+	// 2019-06-08 [BEST] 인기글_BEGIN_박초희
+	      public int best(int bbsID, String bbsTitle) { //bbsTitle에 [BEST] 추가
 	         String SQL = "UPDATE BBS SET bbsTitle = ? WHERE bbsID = ?";
 	         try {
 	            PreparedStatement pstmt = conn.prepareStatement(SQL);
@@ -233,6 +234,7 @@ public class BbsDAO {
 	         }
 	         return -1; // �뜲�씠�꽣踰좎씠�뒪 �삤瑜�
 	      }
+	      // 2019-06-08 [BEST] 인기글_END_박초희
 	  	public int YesNoUpdate(int bbsYES, int bbsNO, int bbsID) { //湲� �닔�젙
 			String SQL = "UPDATE BBS SET bbsYES = ?, bbsNO= ? WHERE bbsID = ?";
 			try {
