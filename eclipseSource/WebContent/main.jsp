@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>아빠트</title>
+  <title>경비In</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -37,12 +37,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="main.jsp">아빠트</a>
+      <a class="navbar-brand" href="main.jsp">경비In</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="main.jsp">홈</a></li>
-        <li><a href="#band">아빠트 소개</a></li>
+        <li><a href="#band">경비In 소개</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판
           <span class="caret"></span></a>
@@ -139,7 +139,7 @@
 
 <!-- Container (The Band Section) -->
 <div id="band" class="container text-center">
-  <h3>아빠트 소개</h3>
+  <h3>경비In 소개</h3>
   <p>아파트관리 사이트입니다.</p>
   <br>
   <div class="row">

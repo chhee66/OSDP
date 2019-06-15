@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="bbs.Bbs"%>
-<%@ page import="bbs.BbsDAO"%>
+<%@ page import="bbs2.Bbs2"%>
+<%@ page import="bbs2.Bbs2DAO"%>
 <%@ page import="java.io.PrintWriter"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>경비In 웹 사이트</title>
 </head>
 <body>
 	<%
@@ -32,20 +32,20 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('유효하지 않은 글입니다.')");
-			script.println("location.href='bbs.jsp'");
+			script.println("location.href='bbs2.jsp'");
 			script.println("</script>");
 		}
-		Bbs bbs = new BbsDAO().getBbs(bbsID);
+		Bbs2 bbs = new Bbs2DAO().getBbs(bbsID);
 		if(!userID.equals(bbs.getUserID())){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('권한이 없습니다.')");
-			script.println("location.href='bbs.jsp'");
+			script.println("location.href='bbs2.jsp'");
 			script.println("</script>");
 		}
 		
 		else{
-			BbsDAO bbsDAO = new BbsDAO();
+			Bbs2DAO bbsDAO = new Bbs2DAO();
 			int result = bbsDAO.delete(bbsID); //DB에 등록
 			if (result == -1) {
 				PrintWriter script = response.getWriter();
@@ -56,7 +56,7 @@
 			} else { 
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("location.href = 'bbs.jsp'");
+				script.println("location.href = 'bbs2.jsp'");
 				script.println("</script>");
 			}
 		}

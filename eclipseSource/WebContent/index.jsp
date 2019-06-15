@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href ="css/custom.css">
 <meta http-equiv="Content-Type" content="text/html; charset= UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>경비In 웹 사이트</title>
 </head>
 <body>
 	<script>

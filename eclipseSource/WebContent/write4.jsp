@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/custom.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<title>JSP 게시판 웹 사이트</title>
+<title>경비In 웹 사이트</title>
 </head>
 <body>
 	<%
@@ -27,7 +27,7 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="main.jsp">JSP 게시판 웹 사이트</a>
+			<a class="navbar-brand" href="main.jsp">경비In 웹 사이트</a>
 		</div>
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">

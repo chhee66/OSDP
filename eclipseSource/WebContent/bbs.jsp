@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>JSP 게시판 만들기</title>
+<title>경비In</title> <!-- 20190614 홈페이지 이름 수정 -->
 
 <style>
 a,a:hover {
@@ -51,12 +51,12 @@ a,a:hover {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="main.jsp">아빠트</a>
+      <a class="navbar-brand" href="main.jsp">경비In</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="main.jsp">홈</a></li>
-        <li><a href="#band">아빠트 소개</a></li>
+        <li><a href="#band">경비In 소개</a></li>  <!-- 20190614 이름 수정 -->
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판
           <span class="caret"></span></a>
@@ -114,10 +114,15 @@ a,a:hover {
 						BbsDAO bbsDAO = new BbsDAO();
 						ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
 						ArrayList<Bbs> listAll = bbsDAO.getAllList();
-								
+						int result; //2019-06-08 [BEST]인기글		
 						int OrderNum =1;
 						int k = listAll.size() - ((pageNumber-1) * 10)+1;
 						for (int i = 0; i < list.size(); i++) {
+							// 2019-06-15 [투표] 생성_BEGIN_박초희
+							//if(list.get(i).getBbsVOTE()==1){
+							//	result = bbsDAO.best(list.get(i).getBbsID(), "[투표] "+list.get(i).getBbsTitle());
+							//}
+							//2019-06-15 [투표] 생성_END_박초희
 					%>
 					<tr>
 					<%
@@ -125,7 +130,19 @@ a,a:hover {
 						{
 					%>
 						<td><%=k-OrderNum%></td>
-						<td><a href="voteview.jsp?bbsID=<%=list.get(i).getBbsID()%>&modNum=<%=0%>#<%=0%>">[투표]<%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+						<%
+							if(list.get(i).getBbsView() >= 15)
+							{
+						%>
+						<td><a href="voteview.jsp?bbsID=<%=list.get(i).getBbsID()%>&modNum=<%=0%>#<%=0%>">[BEST] <%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+							<%
+							}
+							else{
+						%>
+						<td><a href="voteview.jsp?bbsID=<%=list.get(i).getBbsID()%>&modNum=<%=0%>#<%=0%>"><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+						<%
+							}
+						%>
 						<td><%=list.get(i).getUserID()%></td>
 						<td><%=list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
 						+ list.get(i).getBbsDate().substring(14, 16) + "분"%></td>
@@ -137,10 +154,27 @@ a,a:hover {
 					%>
 					<tr>
 						<td><%=k-OrderNum %></td>
-						<td><a href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>"><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt").replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+						<%
+							if(list.get(i).getBbsView() >= 15)
+							{
+						%>
+						<td><a
+							href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>&modNum=<%=0%>#<%=0%>">[BEST] <%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt")
+						.replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+						<%
+							}
+							else{
+						%>
+						<td><a
+							href="view.jsp?bbsID=<%=list.get(i).getBbsID()%>&modNum=<%=0%>#<%=0%>"><%=list.get(i).getBbsTitle().replaceAll(" ", "&nbsp").replaceAll("<", "&lt")
+						.replaceAll(">", "&gt").replaceAll("\n", "<br>")%></a></td>
+						<%
+							}
+						%>
 						<td><%=list.get(i).getUserID()%></td>
 						<td><%=list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + "시"
 						+ list.get(i).getBbsDate().substring(14, 16) + "분"%></td>
+						<td><%=list.get(i).getBbsView() %></td>
 					</tr>
 					<%
 							}

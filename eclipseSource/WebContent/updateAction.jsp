@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JSP 게시판 웹 사이트</title>
+<title>경비In 웹 사이트</title>
 </head>
 <body>
 	<%
@@ -54,7 +54,8 @@
 				script.println("</script>");
 			} else {
 				BbsDAO bbsDAO = new BbsDAO();
-				int result = bbsDAO.update(bbsID, request.getParameter("bbsTitle"), request.getParameter("bbsContent"), request.getParameter("bbsDeadline"), Integer.parseInt(request.getParameter("bbsVOTE"))); //DB에 등록
+				int result = 0;
+				result=bbsDAO.update(bbsID, request.getParameter("bbsTitle"), request.getParameter("bbsContent")); //DB에 등록
 				if (result == -1) {
 					PrintWriter script = response.getWriter();
 					script.println("<script>");

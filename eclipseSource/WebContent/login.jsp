@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title> JSP 게시판 웹 사이트 </title>
+<title> 경비In 웹 사이트 </title>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -22,12 +22,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="main.jsp">아빠트</a>
+      <a class="navbar-brand" href="main.jsp">경비In</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="main.jsp">홈</a></li>
-        <li><a href="#band">아빠트 소개</a></li>
+        <li><a href="#band">경비In 소개</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">게시판
           <span class="caret"></span></a>
